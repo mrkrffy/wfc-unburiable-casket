@@ -2,7 +2,9 @@
 
 @theme {
   --color-primary: #6644b1;
-  --color-secondary: #29422b;
+  --color-secondary: #351e66;
+  --color-icon-background: #351e66;
+  --color-icon-foreground: #6644af;
 }
 
 :root,

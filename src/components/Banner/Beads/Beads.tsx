@@ -2,8 +2,8 @@ import { useState, useMemo, useEffect } from "react";
 import Bead from "./Bead";
 import people from "@/data/People";
 
-const minRadius = 3;
-const maxRadius = 8;
+const minRadius = window.innerWidth <= 768 ? 2 : 3;
+const maxRadius = window.innerWidth <= 768 ? 7 : 8;
 
 function generateRandomPosition(): [number, number, number] {
   const radius = Math.random() * (maxRadius - minRadius) + minRadius;
@@ -27,7 +27,7 @@ const Beads = ({ initialPopupDelay }: BeadsProps) => {
   const beadPositions = useMemo(() => {
     const positions: Array<[number, number, number]> = [];
 
-    for (let i = 0; i < 56; i++) positions.push(generateRandomPosition());
+    for (let i = 0; i < people.length; i++) positions.push(generateRandomPosition());
 
     return positions;
   }, []);

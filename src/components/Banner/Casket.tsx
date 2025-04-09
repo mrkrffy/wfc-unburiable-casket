@@ -20,7 +20,7 @@ type CasketProps = {
 };
 
 const Casket = ({ animationMaxDuration, ...props }: CasketProps & JSX.IntrinsicElements["group"]) => {
-  const { animations, scene } = useGLTF("/models/casket.glb") as GLTFResult;
+  const { animations, scene } = useGLTF(`${import.meta.env.BASE_URL}models/casket.glb`) as GLTFResult;
   const { actions } = useAnimations(animations, scene);
   const action = actions["Take 001"];
 
@@ -42,6 +42,6 @@ const Casket = ({ animationMaxDuration, ...props }: CasketProps & JSX.IntrinsicE
   return <primitive {...props} object={scene} />;
 };
 
-useGLTF.preload("/models/casket.glb");
+useGLTF.preload(`${import.meta.env.BASE_URL}models/casket.glb`);
 
 export default Casket;

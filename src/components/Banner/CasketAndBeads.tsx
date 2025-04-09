@@ -32,7 +32,11 @@ const CasketAndBeads = () => {
 
   return (
     <group dispose={null}>
-      <Casket scale={60} position={[0, -5, 0]} animationMaxDuration={animationMaxDuration} />
+      <Casket
+        scale={window.innerWidth <= 768 ? 40 : 60} //! TODO: Improve mobile checking
+        position={[0, window.innerWidth <= 768 ? -3 : -5, 0]}
+        animationMaxDuration={animationMaxDuration}
+      />
       <Beads initialPopupDelay={animationMaxDuration} />
       <OrbitControls enableZoom={false} enablePan={false} />
     </group>
