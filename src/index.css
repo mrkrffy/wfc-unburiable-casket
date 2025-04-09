@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6644b1;
+  --color-secondary: #29422b;
+}
+
+:root,
+body {
+  background-color: white !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
