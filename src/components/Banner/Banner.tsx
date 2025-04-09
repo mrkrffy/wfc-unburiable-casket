@@ -17,7 +17,7 @@ const Banner = () => {
       <Canvas camera={{ position: [0, 0, 10] }} className="absolute inset-0 z-99 ">
         <ambientLight intensity={3} />
         <Suspense fallback={null}>
-          <CasketAndBeads scale={0.8} position={[0, 3.5, 0]} />
+          <CasketAndBeads scale={0.8} position={[0, 0, 0]} />
         </Suspense>
       </Canvas>
     );
@@ -26,7 +26,7 @@ const Banner = () => {
   return (
     <div>
       {renderBackground()}
-      <div className="h-[200vh] w-screen absolute inset-0 z-1">{renderCanvas()}</div>
+      <div className="xl:h-[140vh] h-[100vh] w-screen absolute inset-0 z-1">{renderCanvas()}</div>
     </div>
   );
 };

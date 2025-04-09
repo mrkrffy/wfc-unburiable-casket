@@ -3,11 +3,14 @@ import people from "@/data/People";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Stories.css";
 import StoriesTitle from "@/assets/images/stories-title.svg?react";
+import useScreenSize from "@/utils/useScreenSize";
 
 // @ts-expect-error swiper css module
 import "swiper/css";
 
 const Stories = () => {
+  const { screenSizeCategory } = useScreenSize();
+
   const renderLineDivider = () => {
     return <div className="w-2.5 h-7 my-0.5 bg-[var(--color-text-background)]"></div>;
   };
@@ -66,14 +69,14 @@ const Stories = () => {
 
   return (
     <>
-      <div className="py-10">
-        <div className="flex flex-col justify-center items-center  px-[15vw]">
+      <div className="lg:py-10 pb-10">
+        <div className="flex flex-col justify-center items-center lg:px-[15vw] px-[5vw]">
           <StoriesTitle className="lg:w-[30vw] w-[80vw]" />
           {renderStoriesDescription()}
         </div>
-        <div className="slider-container mt-20 overflow-visible px-32">
+        <div className="slider-container mt-20 overflow-visible px-[15vw]">
           <Swiper
-            slidesPerView={3}
+            slidesPerView={screenSizeCategory == "small" ? 1 : 3}
             initialSlide={Math.round(people.length / 2)}
             centeredSlides={true}
             spaceBetween={30}

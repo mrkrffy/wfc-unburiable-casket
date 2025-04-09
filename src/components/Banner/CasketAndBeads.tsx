@@ -37,7 +37,7 @@ const CasketAndBeads = (props: JSX.IntrinsicElements["group"]) => {
   return (
     <group {...props} dispose={null}>
       <Casket
-        scale={screenSizeCategory == "small" ? 40 : 50}
+        scale={screenSizeCategory == "small" ? 50 : 70}
         position={[0, screenSizeCategory == "small" ? -3 : -3, 0]}
         animationMaxDuration={animationMaxDuration}
       />

@@ -8,19 +8,21 @@ const Partners = () => {
   const renderPartnersTitle = () => {
     return (
       <div className="flex flex-row justify-center items-center space-x-5">
-        <PartnersText className="h-10 w-auto" />
-        <div className="text-5xl  text-white bg-[var(--color-text-background)] pb-2.5">Organisations</div>
+        <PartnersText className="lg:h-10 h-5 w-auto" />
+        <div className="lg:text-5xl text-2xl text-white bg-[var(--color-text-background)] lg:pb-2.5 pb-1">
+          Organisations
+        </div>
       </div>
     );
   };
 
   const renderPartnersLogos = () => {
     return (
-      <div className="mt-20 grid grid-cols-4 gap-8 justify-items-center">
-        <img src={wlmLogo} alt="Women Lead Movement" className="h-24 w-auto" />
-        <img src={rapeCrisisLogo} alt="Rape Crisis" className="h-24 w-auto" />
-        <img src={theSafeHouseLogo} alt="The Safe House" className="h-24 w-auto" />
-        <img src={tearsLogo} alt="Tears" className="h-24 w-auto" />
+      <div className="mt-20 grid lg:grid-cols-4 grid-cols-1 gap-8 justify-items-center">
+        <img src={wlmLogo} alt="Women Lead Movement" className="lg:h-24 h-16 w-auto" />
+        <img src={rapeCrisisLogo} alt="Rape Crisis" className="lg:h-24 h-16 w-auto" />
+        <img src={theSafeHouseLogo} alt="The Safe House" className="lg:h-24 h-16 w-auto" />
+        <img src={tearsLogo} alt="Tears" className="lg:h-24 h-16 w-auto" />
       </div>
     );
   };

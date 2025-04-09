@@ -9,7 +9,7 @@ const CampaignMessage = () => {
     <>
       <div
         id="campaign-message-section"
-        className="flex flex-col justify-center items-center py-20 px-[10vw] space-y-0 mt-50 relative z-2"
+        className="flex flex-col justify-center items-center py-20 px-[10vw] space-y-0 -mt-40 lg:mt-30 relative z-2"
       >
         <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2 py-1">
           This casket stands as a solemn tribute to every woman whose life was taken by femicide in South Africa in just

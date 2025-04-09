@@ -27,9 +27,9 @@ const Footer = () => {
   return (
     <>
       <DottedTrianglePattern className="w-full" />
-      <div className="flex flex-col bg-black pt-16 pb-20 px-20 -mt-5">
+      <div className="flex flex-col bg-black pt-16 pb-20 lg:px-20 -mt-5 ">
         <Partners />
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex lg:flex-row flex-col justify-between items-center space-y-10">
           {renderSocialIcons()}
           <WFCLogoWhite className="h-32 w-auto" />
         </div>
