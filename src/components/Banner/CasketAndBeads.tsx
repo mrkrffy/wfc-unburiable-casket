@@ -12,10 +12,11 @@ import { useFrame } from "@react-three/fiber";
 import Casket from "./Casket";
 import Beads from "./Beads/Beads";
 import useScreenSize from "@/utils/useScreenSize";
+import { JSX } from "react";
 
 const animationMaxDuration = 2;
 
-const CasketAndBeads = () => {
+const CasketAndBeads = (props: JSX.IntrinsicElements["group"]) => {
   const { screenSizeCategory } = useScreenSize();
 
   useFrame((state) => {
@@ -34,10 +35,10 @@ const CasketAndBeads = () => {
   });
 
   return (
-    <group dispose={null}>
+    <group {...props} dispose={null}>
       <Casket
-        scale={screenSizeCategory == "small" ? 40 : 60}
-        position={[0, screenSizeCategory == "small" ? -3 : -5, 0]}
+        scale={screenSizeCategory == "small" ? 40 : 50}
+        position={[0, screenSizeCategory == "small" ? -3 : -3, 0]}
         animationMaxDuration={animationMaxDuration}
       />
       <Beads initialPopupDelay={animationMaxDuration} />

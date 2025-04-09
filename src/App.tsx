@@ -3,9 +3,8 @@ import Banner from "@/components/Banner/Banner";
 import CampaignMessage from "@/components/CampaignMessage";
 import MainVideo from "@/components/MainVideo";
 import Stories from "@/components/Stories/Stories";
-import Partners from "@/components/Partners";
-import HashtagDivider from "@/components/HashtagDivider";
 import Footer from "@/components/Footer";
+import SupportCampaign from "./components/SupportCampaign";
 
 const App = () => {
   return (
@@ -15,8 +14,7 @@ const App = () => {
       <CampaignMessage />
       <MainVideo />
       <Stories />
-      <HashtagDivider />
-      <Partners />
+      <SupportCampaign />
       <Footer />
     </>
   );

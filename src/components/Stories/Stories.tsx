@@ -2,11 +2,47 @@ import { Person } from "@/data/models/Person";
 import people from "@/data/People";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Stories.css";
+import StoriesTitle from "@/assets/images/stories-title.svg?react";
 
 // @ts-expect-error swiper css module
 import "swiper/css";
 
 const Stories = () => {
+  const renderLineDivider = () => {
+    return <div className="w-2.5 h-7 my-0.5 bg-[var(--color-text-background)]"></div>;
+  };
+
+  const renderStoriesDescription = () => {
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2">
+          Behind each bead is a woman. A mother, a daughter, a sister, a friend.
+        </p>
+        {renderLineDivider()}
+        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2">
+          The women and children whose lives were cut short are more than statistics; they were individuals
+        </p>
+        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2 mt-0.5">
+          with dreams and hopes. Their tragic loss leaves a void in families, communities, and society.
+        </p>
+        {renderLineDivider()}
+        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2">
+          But their memory will never be buried.
+        </p>
+        {renderLineDivider()}
+        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2">
+          We will continue to honour their lives.
+        </p>
+        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2 mt-0.5">
+          This crisis demands urgent action
+        </p>
+        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2 mt-0.5">
+          We want a future where every woman can live free from fear and violence.
+        </p>
+      </div>
+    );
+  };
+
   const renderStory = ({ person }: { person: Person }) => {
     return (
       <>
@@ -30,16 +66,18 @@ const Stories = () => {
 
   return (
     <>
-      <div className=" bg-[var(--color-primary)] py-20">
-        <div className="flex flex-col justify-center items-center  px-[15vw] lg:space-y-10 space-y-5">
-          <h1 className="lg:text-5xl text-3xl font-bold text-white text-center">Gone But Never Forgotten</h1>
-          <p className="lg:text-2xl text-lg text-white text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora distinctio maxime odio repudiandae non
-            nulla nostrum est temporibus voluptatem odit!
-          </p>
+      <div className="py-10">
+        <div className="flex flex-col justify-center items-center  px-[15vw]">
+          <StoriesTitle className="lg:w-[30vw] w-[80vw]" />
+          {renderStoriesDescription()}
         </div>
         <div className="slider-container mt-20 overflow-visible px-32">
-          <Swiper slidesPerView={3} centeredSlides={true} spaceBetween={30}>
+          <Swiper
+            slidesPerView={3}
+            initialSlide={Math.round(people.length / 2)}
+            centeredSlides={true}
+            spaceBetween={30}
+          >
             {people.map((person) => (
               <SwiperSlide>{renderStory({ person })}</SwiperSlide>
             ))}

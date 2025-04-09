@@ -3,6 +3,7 @@ import { Person } from "@/data/models/Person";
 import * as THREE from "three";
 import { useLoader, useFrame } from "@react-three/fiber";
 import PersonCard from "./PersonCard";
+import "./Bead.css";
 
 type BeadProps = {
   person: Person;
@@ -13,6 +14,7 @@ const Bead = ({ person, initialVisible, ...props }: BeadProps & JSX.IntrinsicEle
   const markerRef = useRef(null);
   const popupRef = useRef(null);
   const holdTimeout = useRef<NodeJS.Timeout>(null);
+  const meshRef = useRef<THREE.Mesh>(null);
 
   const [visible, setVisible] = useState(initialVisible || false);
   const beadTexture = useLoader(THREE.TextureLoader, `${import.meta.env.BASE_URL}models/bead.png`);
@@ -48,9 +50,6 @@ const Bead = ({ person, initialVisible, ...props }: BeadProps & JSX.IntrinsicEle
     };
   }, []);
 
-  const meshRef = useRef<THREE.Mesh>(null);
-
-  // Ensure the bead always faces the camera and stays upright
   useFrame(({ camera }) => {
     if (meshRef.current) meshRef.current.lookAt(camera.position);
   });
@@ -64,7 +63,7 @@ const Bead = ({ person, initialVisible, ...props }: BeadProps & JSX.IntrinsicEle
           setVisible(true);
         }}
       >
-        <planeGeometry args={[0.8, 0.8]} />
+        <planeGeometry args={[0.6, 0.6]} />
         <meshBasicMaterial map={beadTexture} transparent={true} opacity={1} />
         {visible && <PersonCard ref={popupRef} person={person} />}
       </mesh>
