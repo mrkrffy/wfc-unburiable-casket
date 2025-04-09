@@ -3,7 +3,7 @@ import { FiInstagram } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <div className="max-w-[75w] flex flex-row justify-between bg-black py-16 px-24">
+    <div className="flex flex-row justify-between bg-black py-16 px-24">
       <div className="flex flex-col space-y-4">
         <WFCLogoWhite className="h-24 w-auto mx-auto" />
         <div className="text-white">Developed with love by BIGBrave</div>

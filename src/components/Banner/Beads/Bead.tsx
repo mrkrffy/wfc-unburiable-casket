@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, JSX } from "react";
 import { Person } from "@/data/models/Person";
-import BeadOne from "./BeadOne";
-import "./Bead.css";
+import * as THREE from "three";
+import { useLoader, useFrame } from "@react-three/fiber";
 import PersonCard from "./PersonCard";
 
 type BeadProps = {
@@ -15,11 +15,7 @@ const Bead = ({ person, initialVisible, ...props }: BeadProps & JSX.IntrinsicEle
   const holdTimeout = useRef<NodeJS.Timeout>(null);
 
   const [visible, setVisible] = useState(initialVisible || false);
-  const randomBeanRotation = useRef<[number, number, number]>([
-    Math.random() * Math.PI * 2,
-    Math.random() * Math.PI * 2,
-    Math.random() * Math.PI * 2,
-  ]).current;
+  const beadTexture = useLoader(THREE.TextureLoader, `${import.meta.env.BASE_URL}models/bead.png`);
 
   useEffect(() => {
     setVisible(initialVisible);
@@ -50,17 +46,26 @@ const Bead = ({ person, initialVisible, ...props }: BeadProps & JSX.IntrinsicEle
       document.removeEventListener("pointerdown", handlePointerDown);
       document.removeEventListener("pointerup", handlePointerUp);
     };
-  }, []); // Toggle flip
+  }, []);
+
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  // Ensure the bead always faces the camera and stays upright
+  useFrame(({ camera }) => {
+    if (meshRef.current) meshRef.current.lookAt(camera.position);
+  });
 
   return (
     <group {...props} ref={markerRef}>
       <mesh
+        ref={meshRef}
         onClick={(e) => {
           e.stopPropagation();
           setVisible(true);
         }}
       >
-        <BeadOne scale={1} rotation={randomBeanRotation} />
+        <planeGeometry args={[0.8, 0.8]} />
+        <meshBasicMaterial map={beadTexture} transparent={true} opacity={1} />
         {visible && <PersonCard ref={popupRef} person={person} />}
       </mesh>
     </group>

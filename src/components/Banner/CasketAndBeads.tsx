@@ -11,10 +11,13 @@ import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import Casket from "./Casket";
 import Beads from "./Beads/Beads";
+import useScreenSize from "@/utils/useScreenSize";
 
 const animationMaxDuration = 2;
 
 const CasketAndBeads = () => {
+  const { screenSizeCategory } = useScreenSize();
+
   useFrame((state) => {
     const elapsedTime = state.clock.getElapsedTime();
 
@@ -33,8 +36,8 @@ const CasketAndBeads = () => {
   return (
     <group dispose={null}>
       <Casket
-        scale={window.innerWidth <= 768 ? 40 : 60} //! TODO: Improve mobile checking
-        position={[0, window.innerWidth <= 768 ? -3 : -5, 0]}
+        scale={screenSizeCategory == "small" ? 40 : 60}
+        position={[0, screenSizeCategory == "small" ? -3 : -5, 0]}
         animationMaxDuration={animationMaxDuration}
       />
       <Beads initialPopupDelay={animationMaxDuration} />

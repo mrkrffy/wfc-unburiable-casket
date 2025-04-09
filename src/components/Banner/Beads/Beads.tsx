@@ -1,11 +1,15 @@
 import { useState, useMemo, useEffect } from "react";
 import Bead from "./Bead";
 import people from "@/data/People";
+import useScreenSize from "@/utils/useScreenSize";
 
-const minRadius = window.innerWidth <= 768 ? 2 : 3;
-const maxRadius = window.innerWidth <= 768 ? 7 : 8;
-
-function generateRandomPosition(): [number, number, number] {
+function generateRandomPosition({
+  minRadius,
+  maxRadius,
+}: {
+  minRadius: number;
+  maxRadius: number;
+}): [number, number, number] {
   const radius = Math.random() * (maxRadius - minRadius) + minRadius;
   const theta = Math.acos(2 * Math.random() - 1);
   const phi = Math.random() * Math.PI * 2;
@@ -22,15 +26,22 @@ interface BeadsProps {
 }
 
 const Beads = ({ initialPopupDelay }: BeadsProps) => {
+  const { screenSizeCategory } = useScreenSize();
   const [showInitialPopup, setShowInitialPopup] = useState(false);
 
   const beadPositions = useMemo(() => {
     const positions: Array<[number, number, number]> = [];
 
-    for (let i = 0; i < people.length; i++) positions.push(generateRandomPosition());
+    for (let i = 0; i < people.length; i++)
+      positions.push(
+        generateRandomPosition({
+          minRadius: screenSizeCategory == "small" ? 2 : 3,
+          maxRadius: screenSizeCategory == "small" ? 7 : 8,
+        })
+      );
 
     return positions;
-  }, []);
+  }, [screenSizeCategory]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

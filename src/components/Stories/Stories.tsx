@@ -1,27 +1,24 @@
 import { Person } from "@/data/models/Person";
 import people from "@/data/People";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "./Stories.css";
+
+// @ts-expect-error swiper css module
+import "swiper/css";
 
 const Stories = () => {
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "20px",
-    slidesToShow: 3,
-    speed: 500,
-    useCss: true,
-    arrows: true,
-  };
-
   const renderStory = ({ person }: { person: Person }) => {
     return (
       <>
         <div className="flex flex-row">
-          <div>
-            <img src={import.meta.env.BASE_URL + person.image} alt={person.name} />
+          <div className="flex-1/3">
+            <img
+              src={import.meta.env.BASE_URL + person.image}
+              alt={person.name}
+              className="h-full object-cover object-center"
+            />
           </div>
-          <div className="bg-black text-white">
+          <div className="bg-black text-white flex-2/3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eos ipsum quisquam tempora. Harum modi
             similique velit odio ratione est dolores, provident beatae ullam quam quibusdam vitae consectetur
             accusantium deserunt.
@@ -41,8 +38,12 @@ const Stories = () => {
             nulla nostrum est temporibus voluptatem odit!
           </p>
         </div>
-        <div className="slider-container mt-20">
-          <Slider {...settings}>{people.map((person) => renderStory({ person }))}</Slider>
+        <div className="slider-container mt-20 overflow-visible px-32">
+          <Swiper slidesPerView={3} centeredSlides={true} spaceBetween={30}>
+            {people.map((person) => (
+              <SwiperSlide>{renderStory({ person })}</SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </>

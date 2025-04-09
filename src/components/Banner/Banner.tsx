@@ -1,39 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import CasketAndBeads from "./CasketAndBeads";
-import { U, N, B, R, I, A, L, E, C, S, K, T } from "./Letter";
-import UnburyTheTruth from "@/assets/images/unbury-the-truth.svg?react";
+import UnburiableCasket from "@/assets/images/unburiable-casket.svg?react";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 const Banner = () => {
   const renderBackground = () => {
-    const letterStyle = "lg:h-36 h-12";
-
     return (
-      <div className="flex flex-col items-center pt-50 lg:space-y-100 space-y-80">
-        <div>
-          <div className="flex flex-row lg:space-x-6 space-x-2">
-            <U className={letterStyle} />
-            <N className={letterStyle} />
-            <B className={letterStyle} />
-            <U className={letterStyle} />
-            <R className={letterStyle} />
-            <I className={letterStyle} />
-            <A className={letterStyle} />
-            <B className={letterStyle} />
-            <L className={letterStyle} />
-            <E className={letterStyle} />
-          </div>
-          <div className="flex flex-row items-center lg:space-x-6 space-x-2 mt-8">
-            <C className={letterStyle} />
-            <A className={letterStyle} />
-            <S className={letterStyle} />
-            <K className={letterStyle} />
-            <E className={letterStyle} />
-            <T className={letterStyle} />
-          </div>
-        </div>
-        <UnburyTheTruth className="lg:w-[60vw] w-[95vw]" />
+      <div className="h-screen flex justify-center items-start pt-50">
+        <UnburiableCasket className="lg:w-[60vw] w-[95vw]" />
       </div>
     );
   };
