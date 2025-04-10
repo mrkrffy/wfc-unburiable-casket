@@ -60,7 +60,9 @@ const StoriesSlider = () => {
           </div>
 
           <div className="py-4 border-y border-y-gray-800 flex-grow">
-            <p className="text-white leading-6">{person.story}</p>
+            <p className="text-white leading-6 h-[190px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+              {person.story}
+            </p>
           </div>
 
           <div className="flex flex-row justify-between pt-4">
