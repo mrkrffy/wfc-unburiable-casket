@@ -12,9 +12,7 @@ const ModelLoader = () => {
           style={{ width: `${progress}%`, transition: "width 0.3s" }}
         />
         <div className=" p-0">
-          <span className="text-white text-lg bg-[var(--color-text-background)] px-1 py-0">
-            {Math.floor(progress)}%
-          </span>
+          <span className="text-white text-lg">{Math.floor(progress)}%</span>
         </div>
       </div>
     </Html>
