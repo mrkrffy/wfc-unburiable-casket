@@ -36,7 +36,7 @@ const StoriesSlider = () => {
 
     return (
       <div
-        className="flex lg:flex-row flex-col xl:space-y-0 xl:space-x-8 space-y-4 bg-black px-4 py-6 xl:mx-0 lg:mx-[15vw] mx-[5vw]  rounded-2xl lg:h-[380px] transition-opacity duration-300 ease-in-out "
+        className="flex lg:flex-row flex-col xl:space-y-0 lg:space-x-4 space-y-4 bg-black px-4 py-6 xl:mx-0 lg:mx-[15vw] mx-[5vw]  rounded-2xl lg:h-[380px] transition-opacity duration-300 ease-in-out "
         style={{ opacity }}
       >
         <div className="flex-2/5 flex flex-col">
@@ -91,18 +91,18 @@ const StoriesSlider = () => {
       coverflowEffect={{
         rotate: 0,
         depth: 500,
-        stretch: screenSizeCategory === "small" ? 100 : screenSizeCategory === "medium" ? 300 : 100,
+        stretch: screenSizeCategory === "small" || screenSizeCategory === "large" ? 100 : 300,
         slideShadows: false,
       }}
       onSlideChange={({ activeIndex }) => handleSlideProgress(activeIndex)}
-      slidesPerView={screenSizeCategory == "small" ? 1 : 3}
+      slidesPerView={screenSizeCategory == "small" || screenSizeCategory == "medium" ? 1 : 3}
       initialSlide={initialStoryIndex}
       centeredSlides
       spaceBetween={50}
       className="min-w-screen relative" // added relative positioning to Swiper
     >
       <SwiperButton
-        className="absolute cursor-pointer xl:left-[25vw] left-[7vw] my-auto z-10 top-1/2 transform -translate-y-1/2"
+        className="absolute cursor-pointer xl:left-[25vw] left-[7vw] my-auto z-10 lg:top-1/2 top-[32%] transform -translate-y-1/2"
         onClick={(swiper) => swiper.slidePrev()}
       >
         <FaArrowLeftLong className="h-8 w-auto text-[var(--color-primary)]" />
@@ -113,7 +113,7 @@ const StoriesSlider = () => {
       ))}
 
       <SwiperButton
-        className="absolute cursor-pointer xl:right-[25vw] right-[7vw] my-auto z-10 top-1/2 transform -translate-y-1/2"
+        className="absolute cursor-pointer xl:right-[25vw] right-[7vw] my-auto z-10 lg:top-1/2 top-[32%]  transform -translate-y-1/2"
         onClick={(swiper) => swiper.slideNext()}
       >
         <FaArrowRightLong className="h-8 w-auto text-[var(--color-primary)]" />
