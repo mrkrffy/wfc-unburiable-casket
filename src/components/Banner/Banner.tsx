@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import CasketAndBeads from "./CasketAndBeads";
 import UnburiableCasket from "@/assets/images/unburiable-casket.svg?react";
+import ModelLoader from "./ModelLoader";
 
 const Banner = () => {
   const renderBackground = () => {
@@ -16,7 +17,7 @@ const Banner = () => {
     return (
       <Canvas camera={{ position: [0, 0, 10] }} className="absolute inset-0 z-99 ">
         <ambientLight intensity={3} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<ModelLoader />}>
           <CasketAndBeads scale={0.8} position={[0, 0, 0]} />
         </Suspense>
       </Canvas>

@@ -24,7 +24,7 @@ const PersonCard = ({ person }: PersonCardProps & JSX.IntrinsicElements["group"]
     <Html>
       <AnimatePresence>
         <motion.div
-          className="tooltip fixed inset-0 flex items-center justify-center z-50 space-y-0"
+          className="tooltip fixed inset-0 flex items-center justify-center z-51 space-y-0"
           initial={{ opacity: 0, scale: 0, y: -20 }}
           animate={{ opacity: 1, scale: screenSizeCategory == "small" ? 0.7 : 0.8, y: 0 }}
           exit={{ opacity: 0, scale: 0, y: -20 }}
@@ -39,7 +39,7 @@ const PersonCard = ({ person }: PersonCardProps & JSX.IntrinsicElements["group"]
             >
               <div className="flip-card-front w-full h-full absolute top-0 left-0 backface-hidden bg-black">
                 <div className="flex flex-row items-center justify-start space-x-4 bg-black px-6 h-[80px]">
-                  <div className="h-8 w-10 relative bg-[var(--color-primary)] rounded-full"></div>
+                  <div className="h-10 w-10 relative bg-[var(--color-primary)] rounded-full"></div>
                   <h2 className="text-white font-medium text-[18px] flex-grow">{person.name}</h2>
                   <HiDotsVertical className="h-6 w-auto text-white" />
                 </div>
@@ -74,7 +74,7 @@ const PersonCard = ({ person }: PersonCardProps & JSX.IntrinsicElements["group"]
 
               <div className="flip-card-back w-full shadow-lg h-full absolute top-0 left-0 backface-hidden bg-black text-white">
                 <div className="flex flex-row items-center justify-start space-x-4 bg-black p-6">
-                  <div className=" h-8 w-10 bg-[var(--color-primary)] rounded-full"></div>
+                  <div className=" h-10 w-10 bg-[var(--color-primary)] rounded-full"></div>
                   <h2 className="text-white font-medium text-[18px] flex-grow">{person.name}</h2>
                   <HiDotsVertical className="h-6 w-auto text-white" />
                 </div>

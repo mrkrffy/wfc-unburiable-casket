@@ -35,8 +35,8 @@ const Beads = ({ initialPopupDelay }: BeadsProps) => {
     for (let i = 0; i < people.length; i++)
       positions.push(
         generateRandomPosition({
-          minRadius: screenSizeCategory == "small" ? 2 : 4,
-          maxRadius: screenSizeCategory == "small" ? 7 : 10,
+          minRadius: screenSizeCategory == "small" ? 3 : 4,
+          maxRadius: screenSizeCategory == "small" ? 8 : 10,
         })
       );
 
