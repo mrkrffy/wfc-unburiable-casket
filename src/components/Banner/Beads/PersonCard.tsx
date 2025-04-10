@@ -30,7 +30,7 @@ const PersonCard = ({ person }: PersonCardProps & JSX.IntrinsicElements["group"]
           exit={{ opacity: 0, scale: 0, y: -20 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
         >
-          <div className="min-w-[390px] h-[596px] rounded-[17px] overflow-hidden shadow-sm  relative">
+          <div className="min-w-[390px] h-[600px] rounded-[17px] overflow-hidden shadow-sm  relative">
             <motion.div
               className="flip-container w-full h-full"
               initial={{ rotateY: 0 }}
@@ -38,8 +38,8 @@ const PersonCard = ({ person }: PersonCardProps & JSX.IntrinsicElements["group"]
               transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               <div className="flip-card-front w-full h-full absolute top-0 left-0 backface-hidden bg-black">
-                <div className="flex flex-row items-center justify-start space-x-4 bg-black p-6">
-                  <div className="h-10 w-10 bg-[var(--color-primary)] rounded-full"></div>
+                <div className="flex flex-row items-center justify-start space-x-4 bg-black px-6 h-[80px]">
+                  <div className="h-8 w-10 relative bg-[var(--color-primary)] rounded-full"></div>
                   <h2 className="text-white font-medium text-[18px] flex-grow">{person.name}</h2>
                   <HiDotsVertical className="h-6 w-auto text-white" />
                 </div>
@@ -59,14 +59,14 @@ const PersonCard = ({ person }: PersonCardProps & JSX.IntrinsicElements["group"]
                 <div className="bg-white overflow-hidden">
                   <DottedTrianglePattern className="w-full  scale-150 transform origin-center text-[var(--color-primary)] fill-current" />
                 </div>
-                <div className="flex items-center justify-center bg-[var(--color-primary)] py-2 px-6">
+                <div className="flex items-center justify-center bg-[var(--color-primary)] py-4 px-6">
                   <button
                     className="px-6 py-2 flex space-x-3 justify-center items-center text-white font-bold text-xl tracking-wide rounded-lg"
                     onClick={handleFlip}
                   >
                     <span>READ HER STORY</span>
-                    <div className="h-10 w-10 flex justify-center items-center rounded-xl bg-white shadow-lg">
-                      <FaArrowRightLong className="h-6 w-auto text-[var(--color-primary)]" />
+                    <div className="h-8 w-8 flex justify-center items-center rounded-xl bg-white shadow-lg">
+                      <FaArrowRightLong className="h-4 w-auto text-[var(--color-primary)]" />
                     </div>
                   </button>
                 </div>
@@ -74,16 +74,22 @@ const PersonCard = ({ person }: PersonCardProps & JSX.IntrinsicElements["group"]
 
               <div className="flip-card-back w-full shadow-lg h-full absolute top-0 left-0 backface-hidden bg-black text-white">
                 <div className="flex flex-row items-center justify-start space-x-4 bg-black p-6">
-                  <div className="h-10 w-10 bg-[var(--color-primary)] rounded-full"></div>
+                  <div className=" h-8 w-10 bg-[var(--color-primary)] rounded-full"></div>
                   <h2 className="text-white font-medium text-[18px] flex-grow">{person.name}</h2>
                   <HiDotsVertical className="h-6 w-auto text-white" />
                 </div>
-                <div className="bg-white h-[10px]"></div>
-                <div className="text-white h-[400px]  p-6 text-xl">{person.story}</div>
-                <div className="bg-white h-[10px]"></div>
-                <div className="flex items-center justify-center bg-black p-6">
+                <div className="bg-white overflow-hidden">
+                  <DottedTrianglePattern className="w-full  scale-150 transform origin-center text-[var(--color-primary)] fill-current" />
+                </div>
+                <div className="text-white h-[400px] p-6 text-xl whitespace-pre-line overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--color-primary)] scrollbar-track-transparent">
+                  {person.story}
+                </div>
+                <div className="bg-white overflow-hidden">
+                  <DottedTrianglePattern className="w-full  scale-150 transform origin-center text-[var(--color-primary)] fill-current" />
+                </div>
+                <div className="flex items-center justify-center bg-black py-2">
                   <button
-                    className="px-6 py-2 text-white font-bold text-lg tracking-widest rounded-lg"
+                    className="px-6 py-4 text-white font-bold text-lg tracking-widest rounded-lg"
                     onClick={handleFlip}
                   >
                     #UnburyTheTruth

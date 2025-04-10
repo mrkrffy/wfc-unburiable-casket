@@ -12,7 +12,6 @@ import { Person } from "@/data/models/Person";
 
 // @ts-expect-error swiper css module
 import "swiper/css/bundle";
-import "./StoriesSlider.css";
 import SwiperButton from "./SwiperButton";
 
 const StoriesSlider = () => {
