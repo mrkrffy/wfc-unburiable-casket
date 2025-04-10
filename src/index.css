@@ -28,13 +28,13 @@ body {
 @media (max-width: 768px) {
   :root,
   body {
-    background-size: 250% !important; /* Adjust zoom level for mobile */
+    background-size: 300% !important; /* Adjust zoom level for mobile */
   }
 }
 
 @media (max-width: 1024px) {
   :root,
   body {
-    background-size: 100%; /* Adjust zoom level for mobile */
+    background-size: 150%; /* Adjust zoom level for mobile */
   }
 }

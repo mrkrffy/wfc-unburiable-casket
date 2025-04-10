@@ -55,19 +55,12 @@ const StoriesSlider = () => {
         <div className="text-white flex-3/5 flex flex-col">
           <div className="flex flex-row items-center justify-start space-x-4 bg-black py-4">
             <div className="h-10 w-10 bg-[var(--color-primary)] rounded-full"></div>
-            <h2 className="lg:text-xl text-normal text-white text-center bg-[var(--color-text-background)]">
-              {person.name}
-            </h2>
-            <div className="flex-grow" />
+            <h2 className="lg:text-xl text-normal text-white flex-grow">{person.name}</h2>
             <HiDotsVertical className="h-6 w-auto text-white" />
           </div>
 
           <div className="py-4 border-y border-y-gray-800 flex-grow">
-            <p className="text-white leading-6">
-              <span className="bg-[var(--color-text-background)] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
-                {person.story}
-              </span>
-            </p>
+            <p className="text-white leading-6">{person.story}</p>
           </div>
 
           <div className="flex flex-row justify-between pt-4">

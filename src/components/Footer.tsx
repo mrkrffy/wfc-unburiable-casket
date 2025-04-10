@@ -9,7 +9,7 @@ const Footer = () => {
     return (
       <div className="flex flex-row space-x-8">
         <div className=" bg-white rounded-full max-h-14 flex items-center justify-center">
-          <FaFacebook className="h-14 w-auto text-[var(--color-primary)] -m-0.5" />
+          <FaFacebook className="h-14 w-auto text-[var(--color-primary)] -m-[1px]" />
         </div>
         <div className=" bg-[var(--color-primary)] max-h-14 w-14 rounded-full flex items-center justify-center">
           <RiTwitterXFill className="h-8 w-auto text-white" />

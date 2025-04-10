@@ -7,7 +7,7 @@ import ModelLoader from "./ModelLoader";
 const Banner = () => {
   const renderBackground = () => {
     return (
-      <div className="h-screen flex justify-center items-start pt-50">
+      <div className="lg:h-screen h-[80vh] flex justify-center items-start pt-50">
         <UnburiableCasket className="xl:w-[60vw] lg:w-[80vw] w-[95vw]" />
       </div>
     );
@@ -18,7 +18,7 @@ const Banner = () => {
       <Canvas camera={{ position: [0, 0, 10] }} className="absolute inset-0 z-99 ">
         <ambientLight intensity={3} />
         <Suspense fallback={<ModelLoader />}>
-          <CasketAndBeads scale={0.8} position={[0, 0, 0]} />
+          <CasketAndBeads scale={1} position={[0, -2, 0]} />
         </Suspense>
       </Canvas>
     );
@@ -27,7 +27,7 @@ const Banner = () => {
   return (
     <div>
       {renderBackground()}
-      <div className="xl:h-[140vh] h-[100vh] w-screen absolute inset-0 z-1">{renderCanvas()}</div>
+      <div className="lg:h-screen h-[80vh] w-screen absolute inset-0 z-1">{renderCanvas()}</div>
     </div>
   );
 };

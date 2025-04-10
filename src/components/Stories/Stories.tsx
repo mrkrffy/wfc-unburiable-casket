@@ -2,20 +2,14 @@ import StoriesTitle from "@/assets/images/stories-title.svg?react";
 import StoriesSlider from "./StoriesSlider";
 
 const Stories = () => {
-  const renderLineDivider = () => {
-    return <div className="w-2.5 h-7 my-0.5 bg-[var(--color-text-background)]"></div>;
-  };
-
   const renderStoriesDescription = () => {
-    const textStyle =
-      "lg:text-xl text-lg bg-[var(--color-text-background)] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]  leading-6";
+    const textStyle = "lg:text-xl text-lg leading-tight";
 
     return (
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center space-y-6 ">
         <p className="text-white text-center">
           <span className={textStyle}>Behind each bead is a woman. A mother, a daughter, a sister, a friend.</span>
         </p>
-        {renderLineDivider()}
         <p className="text-white text-center">
           <span className={textStyle}>
             The women and children whose lives were cut short are more than statistics; they were individuals
@@ -26,11 +20,9 @@ const Stories = () => {
             with dreams and hopes. Their tragic loss leaves a void in families, communities, and society.
           </span>
         </p>
-        {renderLineDivider()}
         <p className="text-white text-center">
           <span className={textStyle}>But their memory will never be buried.</span>
         </p>
-        {renderLineDivider()}
         <p className="text-white text-center">
           <span className={textStyle}>We will continue to honour their lives.</span>
         </p>
@@ -46,7 +38,7 @@ const Stories = () => {
 
   return (
     <>
-      <div className="lg:py-10 pb-10">
+      <div className="lg:py-10 ">
         <div className="flex flex-col justify-center items-center lg:px-[15vw] px-[5vw]">
           <StoriesTitle className="lg:w-[30vw] w-[80vw]" />
           {renderStoriesDescription()}
