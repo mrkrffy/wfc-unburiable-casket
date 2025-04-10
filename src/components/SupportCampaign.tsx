@@ -19,9 +19,9 @@ const SupportCampaign = () => {
 
   return (
     <div className="flex justify-center items-center pb-14 pt-4">
-      <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)]">
+      <div className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)]">
         Visit <div className="w-48 inline-block"></div> to support.
-      </p>
+      </div>
       {renderLink()}
     </div>
   );

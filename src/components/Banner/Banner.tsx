@@ -7,7 +7,7 @@ const Banner = () => {
   const renderBackground = () => {
     return (
       <div className="h-screen flex justify-center items-start pt-50">
-        <UnburiableCasket className="lg:w-[60vw] w-[95vw]" />
+        <UnburiableCasket className="xl:w-[60vw] lg:w-[80vw] w-[95vw]" />
       </div>
     );
   };

@@ -18,7 +18,7 @@ const Partners = () => {
 
   const renderPartnersLogos = () => {
     return (
-      <div className="mt-20 grid lg:grid-cols-4 grid-cols-1 gap-8 justify-items-center">
+      <div className="mt-20 grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 gap-8 justify-items-center">
         <img src={wlmLogo} alt="Women Lead Movement" className="lg:h-24 h-16 w-auto" />
         <img src={rapeCrisisLogo} alt="Rape Crisis" className="lg:h-24 h-16 w-auto" />
         <img src={theSafeHouseLogo} alt="The Safe House" className="lg:h-24 h-16 w-auto" />

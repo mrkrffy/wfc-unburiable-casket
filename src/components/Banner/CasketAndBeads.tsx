@@ -37,9 +37,8 @@ const CasketAndBeads = (props: JSX.IntrinsicElements["group"]) => {
   return (
     <group {...props} dispose={null}>
       <Casket
-        scale={screenSizeCategory == "small" ? 50 : 70}
-        position={[0, screenSizeCategory == "small" ? -3 : -3, 0]}
-        animationMaxDuration={animationMaxDuration}
+        scale={screenSizeCategory == "small" ? 4 : 5.5}
+        position={[0, screenSizeCategory == "small" ? -1 : -2, 0]}
       />
       <Beads initialPopupDelay={animationMaxDuration} />
       <OrbitControls enableZoom={false} enablePan={false} />

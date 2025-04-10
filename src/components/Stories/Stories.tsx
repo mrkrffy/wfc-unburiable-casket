@@ -1,69 +1,46 @@
-import { Person } from "@/data/models/Person";
-import people from "@/data/People";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "./Stories.css";
 import StoriesTitle from "@/assets/images/stories-title.svg?react";
-import useScreenSize from "@/utils/useScreenSize";
-
-// @ts-expect-error swiper css module
-import "swiper/css";
+import StoriesSlider from "./StoriesSlider";
 
 const Stories = () => {
-  const { screenSizeCategory } = useScreenSize();
-
   const renderLineDivider = () => {
     return <div className="w-2.5 h-7 my-0.5 bg-[var(--color-text-background)]"></div>;
   };
 
   const renderStoriesDescription = () => {
+    const textStyle =
+      "lg:text-xl text-lg bg-[var(--color-text-background)] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]  leading-6";
+
     return (
       <div className="flex flex-col justify-center items-center">
-        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2">
-          Behind each bead is a woman. A mother, a daughter, a sister, a friend.
+        <p className="text-white text-center">
+          <span className={textStyle}>Behind each bead is a woman. A mother, a daughter, a sister, a friend.</span>
         </p>
         {renderLineDivider()}
-        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2">
-          The women and children whose lives were cut short are more than statistics; they were individuals
+        <p className="text-white text-center">
+          <span className={textStyle}>
+            The women and children whose lives were cut short are more than statistics; they were individuals
+          </span>
         </p>
-        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2 mt-0.5">
-          with dreams and hopes. Their tragic loss leaves a void in families, communities, and society.
+        <p className="text-white text-center">
+          <span className={textStyle}>
+            with dreams and hopes. Their tragic loss leaves a void in families, communities, and society.
+          </span>
         </p>
         {renderLineDivider()}
-        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2">
-          But their memory will never be buried.
+        <p className="text-white text-center">
+          <span className={textStyle}>But their memory will never be buried.</span>
         </p>
         {renderLineDivider()}
-        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2">
-          We will continue to honour their lives.
+        <p className="text-white text-center">
+          <span className={textStyle}>We will continue to honour their lives.</span>
         </p>
-        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2 mt-0.5">
-          This crisis demands urgent action
+        <p className="text-white text-center">
+          <span className={textStyle}>This crisis demands urgent action</span>
         </p>
-        <p className="lg:text-xl text-lg text-white text-center bg-[var(--color-text-background)] pr-2 mt-0.5">
-          We want a future where every woman can live free from fear and violence.
+        <p className="text-white text-center">
+          <span className={textStyle}> We want a future where every woman can live free from fear and violence.</span>
         </p>
       </div>
-    );
-  };
-
-  const renderStory = ({ person }: { person: Person }) => {
-    return (
-      <>
-        <div className="flex flex-row">
-          <div className="flex-1/3">
-            <img
-              src={import.meta.env.BASE_URL + person.image}
-              alt={person.name}
-              className="h-full object-cover object-center"
-            />
-          </div>
-          <div className="bg-black text-white flex-2/3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eos ipsum quisquam tempora. Harum modi
-            similique velit odio ratione est dolores, provident beatae ullam quam quibusdam vitae consectetur
-            accusantium deserunt.
-          </div>
-        </div>
-      </>
     );
   };
 
@@ -74,17 +51,8 @@ const Stories = () => {
           <StoriesTitle className="lg:w-[30vw] w-[80vw]" />
           {renderStoriesDescription()}
         </div>
-        <div className="slider-container mt-20 overflow-visible px-[15vw]">
-          <Swiper
-            slidesPerView={screenSizeCategory == "small" ? 1 : 3}
-            initialSlide={Math.round(people.length / 2)}
-            centeredSlides={true}
-            spaceBetween={30}
-          >
-            {people.map((person) => (
-              <SwiperSlide>{renderStory({ person })}</SwiperSlide>
-            ))}
-          </Swiper>
+        <div className="slider-container mt-20 overflow-visible">
+          <StoriesSlider />
         </div>
       </div>
     </>

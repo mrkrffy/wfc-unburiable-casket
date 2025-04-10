@@ -26,10 +26,10 @@ const Footer = () => {
 
   return (
     <>
-      <DottedTrianglePattern className="w-full" />
-      <div className="flex flex-col bg-black pt-16 pb-20 lg:px-20 -mt-5 ">
+      <DottedTrianglePattern className="w-full text-white fill-current" />
+      <div className="flex flex-col bg-black pt-16 pb-20 -mt-[1vw] ">
         <Partners />
-        <div className="flex lg:flex-row flex-col justify-between items-center space-y-10">
+        <div className="flex lg:flex-row flex-col justify-between items-center space-y-10 px-20">
           {renderSocialIcons()}
           <WFCLogoWhite className="h-32 w-auto" />
         </div>
