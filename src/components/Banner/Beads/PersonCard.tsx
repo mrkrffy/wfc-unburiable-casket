@@ -48,8 +48,8 @@ const PersonCard = ({ person }: PersonCardProps & JSX.IntrinsicElements["group"]
                 </div>
                 <div className="relative">
                   <img
-                    src={import.meta.env.BASE_URL + person.image}
-                    loading="lazy"
+                    src={person.image}
+                    loading="lazy" 
                     className={`${
                       !imageLoaded && "animate-pulse"
                     } object-cover h-[400px] w-full bg-[var(--color-primary)]`}

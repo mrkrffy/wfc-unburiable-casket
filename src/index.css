@@ -18,11 +18,12 @@
 
 :root,
 body {
-  background-image: url("/wfc-unburiable-casket/background_image.svg");
+  background-image: url("/wfc-unburiable-casket/background_image.png");
+  background-repeat: repeat;
+  background-size: 80%;
   background-color: var(--color-primary);
   max-width: 100vw !important;
   overflow-x: hidden !important;
-  background-size: cover;
 }
 
 @media (max-width: 768px) {
@@ -35,6 +36,6 @@ body {
 @media (max-width: 1024px) {
   :root,
   body {
-    background-size: 150%; /* Adjust zoom level for mobile */
+    background-size: 250%; /* Adjust zoom level for mobile */
   }
 }

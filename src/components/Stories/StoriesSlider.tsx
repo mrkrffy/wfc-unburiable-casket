@@ -1,5 +1,10 @@
 import people from "@/data/People";
-import { FaArrowLeftLong, FaArrowRightLong, FaHeart, FaRegBookmark } from "react-icons/fa6";
+import {
+  FaArrowLeftLong,
+  FaArrowRightLong,
+  FaHeart,
+  FaRegBookmark,
+} from "react-icons/fa6";
 import { HiDotsVertical } from "react-icons/hi";
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import { IoPaperPlaneOutline } from "react-icons/io5";
@@ -31,7 +36,15 @@ const StoriesSlider = () => {
     return opacity;
   };
 
-  const renderStory = ({ person, index, activeIndex }: { person: Person; index: number; activeIndex: number }) => {
+  const renderStory = ({
+    person,
+    index,
+    activeIndex,
+  }: {
+    person: Person;
+    index: number;
+    activeIndex: number;
+  }) => {
     const opacity = calculateOpacity(index, activeIndex);
 
     return (
@@ -44,7 +57,7 @@ const StoriesSlider = () => {
             <DottedTrianglePattern className="w-full scale-150 transform origin-center text-[var(--color-primary)] fill-current" />
           </div>
           <img
-            src={import.meta.env.BASE_URL + person.image}
+            src={person.image}
             alt={person.name}
             className="h-full object-cover object-center"
           />
@@ -55,14 +68,14 @@ const StoriesSlider = () => {
         <div className="text-white flex-3/5 flex flex-col">
           <div className="flex flex-row items-center justify-start space-x-4 bg-black py-4">
             <div className="h-10 w-10 bg-[var(--color-primary)] rounded-full"></div>
-            <h2 className="lg:text-xl text-normal text-white flex-grow">{person.name}</h2>
+            <h2 className="lg:text-xl text-normal text-white flex-grow">
+              {person.name}
+            </h2>
             <HiDotsVertical className="h-6 w-auto text-white" />
           </div>
 
-          <div className="py-4 border-y border-y-gray-800 flex-grow">
-            <p className="text-white leading-6 h-[190px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
-              {person.story}
-            </p>
+          <div className="py-4 border-y border-y-gray-800  min-h-[190px] flex-growtext-white leading-6 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+            {person.story}
           </div>
 
           <div className="flex flex-row justify-between pt-4">
@@ -86,11 +99,16 @@ const StoriesSlider = () => {
       coverflowEffect={{
         rotate: 0,
         depth: 500,
-        stretch: screenSizeCategory === "small" || screenSizeCategory === "large" ? 100 : 300,
+        stretch:
+          screenSizeCategory === "small" || screenSizeCategory === "large"
+            ? 100
+            : 300,
         slideShadows: false,
       }}
       onSlideChange={({ activeIndex }) => handleSlideProgress(activeIndex)}
-      slidesPerView={screenSizeCategory == "small" || screenSizeCategory == "medium" ? 1 : 3}
+      slidesPerView={
+        screenSizeCategory == "small" || screenSizeCategory == "medium" ? 1 : 3
+      }
       initialSlide={initialStoryIndex}
       centeredSlides
       spaceBetween={50}
@@ -104,7 +122,9 @@ const StoriesSlider = () => {
       </SwiperButton>
 
       {people.map((person, index) => (
-        <SwiperSlide key={index}>{renderStory({ person: person, index, activeIndex: slideProgress })}</SwiperSlide>
+        <SwiperSlide key={index}>
+          {renderStory({ person: person, index, activeIndex: slideProgress })}
+        </SwiperSlide>
       ))}
 
       <SwiperButton
