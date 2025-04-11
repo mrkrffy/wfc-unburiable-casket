@@ -11,13 +11,11 @@ const Banner = () => {
 
   const renderBackground = () => {
     return (
-      <div className="xl:h-[110vh] lg:h-[65vh] h-[80vh] flex flex-col justify-start items-center pt-50">
-        <div className="flex flex-col space-y-4">
-          <UnburiableCasket className="xl:w-[60vw] lg:w-[80vw] w-[95vw]" />
-          <div className="self-end text-white xl:text-sm text-xs justify-end">
-            <RotateIcon className="h-6 inline text-white" /> Rotate the casket
-            and click on the beads to reveal their stories
-          </div>
+      <div className="xl:h-[120vh] lg:h-[60vh] h-[70vh] flex flex-col justify-between items-center pt-50">
+        <UnburiableCasket className="xl:w-[60vw] lg:w-[80vw] w-[95vw]" />
+        <div className="text-white xl:text-sm text-xs mb-10">
+          <RotateIcon className="h-6 inline text-white" /> Rotate the casket and
+          click on the beads to reveal their stories
         </div>
       </div>
     );
@@ -43,7 +41,7 @@ const Banner = () => {
   return (
     <div>
       {renderBackground()}
-      <div className="xl:h-[110vh] lg:h-[65vh] h-[80vh] w-screen absolute inset-0 z-1">
+      <div className="xl:h-[120vh] lg:h-[65vh] h-[80vh] w-screen absolute inset-0 z-1">
         {renderCanvas()}
       </div>
     </div>
