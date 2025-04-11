@@ -18,7 +18,7 @@ const Partners = () => {
 
   const renderPartnersLogos = () => {
     return (
-      <div className="lg:mt-20 mt-15 grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-y-14 justify-items-center">
+      <div className="lg:mt-20 mt-15 grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-y-14 justify-items-center px-[10vw]">
         <div className="flex flex-col space-y-2 items-center">
           <p className="text-white">Stage Sponsor:</p>
           <a

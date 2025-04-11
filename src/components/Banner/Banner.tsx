@@ -4,6 +4,7 @@ import CasketAndBeads from "./CasketAndBeads";
 import UnburiableCasket from "@/assets/images/unburiable-casket.svg?react";
 import ModelLoader from "./ModelLoader";
 import useScreenSize from "@/utils/useScreenSize";
+import RotateIcon from "@/assets/icons/3d-rotate.svg?react";
 
 const Banner = () => {
   const { screenSizeCategory } = useScreenSize();
@@ -14,8 +15,8 @@ const Banner = () => {
         <div className="flex flex-col space-y-4">
           <UnburiableCasket className="xl:w-[60vw] lg:w-[80vw] w-[95vw]" />
           <div className="self-end text-white xl:text-sm text-xs justify-end">
-            <div></div> Rotate the casket and click on the beads to reveal their
-            stories
+            <RotateIcon className="h-6 inline text-white" /> Rotate the casket
+            and click on the beads to reveal their stories
           </div>
         </div>
       </div>

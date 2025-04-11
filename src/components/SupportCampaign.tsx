@@ -18,9 +18,10 @@ const SupportCampaign = () => {
   };
 
   return (
-    <div className="flex justify-center items-center pb-14 lg:pt-8 pt-14">
+    <div className="flex justify-center items-center pb-14 lg:pt-8 pt-0">
       <div className="lg:text-xl text-lg text-white text-center">
-        Visit <div className="inline-block mx-1">{renderLink()}</div> to support.
+        Visit <div className="inline-block mx-1">{renderLink()}</div> to
+        support.
       </div>
     </div>
   );
