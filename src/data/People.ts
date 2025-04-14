@@ -1,6 +1,5 @@
 import { Person } from "@/data/models/Person";
 
-
 const images = import.meta.glob("@/assets/images/people/*.jpg", {
   eager: true,
   import: "default",
